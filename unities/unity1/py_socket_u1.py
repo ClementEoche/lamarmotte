@@ -9,7 +9,7 @@ import requests
 class Py_socket:
 
     def __init__(self,id,frequency):
-        self.id = id
+        self.id = 1
         self.li = []
         self.frequency = frequency
         self.s = socket.socket()
@@ -37,6 +37,3 @@ class Py_socket:
         sleep(self.frequency)
 
 py_socket = Py_socket(5)
-
-
-
