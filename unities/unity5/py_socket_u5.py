@@ -1,6 +1,6 @@
 # Import librairies
 import socket
-from random_values import values
+from scripts.random_values import values
 from time import *
 import json
 import requests
