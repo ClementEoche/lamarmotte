@@ -1,9 +1,8 @@
 from random import *
 
 
-def values(id,li):
+def values(li):
     li = []
-    id_unite = id
     temps_cuve = round(uniform(2.5,4),1)
     temps_ext = round(uniform(8,14),1)
     pds_lait = randint(3512,4607)
@@ -13,7 +12,6 @@ def values(id,li):
     niv_salmonelle = randint(17,37)
     niv_ecoli = randint(35,49)
     niv_listeria = randint(28,54)
-    li.append(id_unite)
     li.append(temps_cuve)
     li.append(temps_ext)
     li.append(pds_lait)
