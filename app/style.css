@@ -1,0 +1,12 @@
+.headerz {
+    position: relative;
+}
+body {
+    padding:0px;
+    margin:0px;
+    font-family: Tahoma, Verdana, Arial, sans-serif;
+}
+
+.hide{
+    visibility: hidden;
+}
