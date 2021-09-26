@@ -3,7 +3,7 @@ import socket
 from random_values import values
 from time import *
 import json
-from router import add_infos
+import requests
 
 
 class Py_socket:
@@ -18,7 +18,6 @@ class Py_socket:
     def receive_data(self) :
         # Creation of empty array to stock data
         result = values(self.li,self.id)
-        add_infos(self.li[0],self.li[1],self.li[2],self.li[3],self.li[4],self.li[5],self.li[6],self.li[7],self.li[8],self.li[9])
         return result
 
     def create_file(self) :
@@ -36,9 +35,7 @@ class Py_socket:
         return request
 
     def send_data(self,req) :
-        self.s.send(req)
+        r = requests.post('http://localhost/nomdeprojet/collectors/collectorunity/collector/info', json=req)
         sleep(self.frequency)
 
-py_socket = Py_socket()
-
-
+py_socket = Py_socket(5)
