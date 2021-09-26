@@ -29,10 +29,8 @@ class Py_socket:
 
 
     def convert_data(data) :
-        json_dump = json.dumps(data)
-        # Cast the array to string to send bytes
-        request = bytes(json_dump, 'utf-8')
-        return request
+        req = json.dumps(data)
+        return req
 
     def send_data(self,req) :
         r = requests.post('http://localhost/nomdeprojet/collectors/collectorunity/collector/info', json=req)
