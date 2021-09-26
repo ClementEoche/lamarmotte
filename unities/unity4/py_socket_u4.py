@@ -37,3 +37,9 @@ class Py_socket:
         sleep(self.frequency)
 
 py_socket = Py_socket(5)
+
+while True:
+    array_data = py_socket.receive_data()
+    py_socket.create_file()
+    json_data = py_socket.convert_data(array_data)
+    py_socket.send_data(json_data)
