@@ -1,0 +1,9 @@
+FROM python:3
+
+COPY . /api
+
+RUN pip install requests
+
+EXPOSE 6000
+
+CMD ["python", "./api/py_socket_u2.py"]

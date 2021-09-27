@@ -1,6 +1,6 @@
 # Import librairies
 import socket
-from scripts.random_values import values
+from random_values import values
 from time import *
 import json
 import requests
@@ -13,7 +13,7 @@ class Py_socket:
         self.li = []
         self.frequency = frequency
         self.s = socket.socket()
-        self.s.connect(('127.0.0.1',8080))
+        self.s.connect(('127.0.0.1',4000))
 
     def receive_data(self) :
         # Creation of empty array to stock data
