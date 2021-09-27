@@ -1,0 +1,9 @@
+FROM python:3
+
+COPY . /api
+
+RUN pip install flask && pip install mysql-connector-python
+
+EXPOSE 5000
+
+CMD ["python", "./api/router.py"]
