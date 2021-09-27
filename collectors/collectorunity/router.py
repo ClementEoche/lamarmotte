@@ -1,5 +1,6 @@
 from flask import Flask, jsonify,request, session
 import json
+from datetime import strftime
 
 # Jsonify for the API request and request for the app routes.
 
@@ -31,6 +32,7 @@ def create_info():
 
 def add_infos(unityid,date_prod, tmp_Cuve, tmp_Ext, poids_Lait_Cuve, mesure_PH, mesure_K,concentration_NaCl,niv_Bact_Salmonelle,niv_Bact_Ecoli,niv_Bact_Listeria):
 	cursor = db_connection()
-	query =	"""INSERT INTO unities (unityId, date_prod, tmp_Cuve,tmp_Ext,poids_Lait_Cuve,mesure_PH,mesure_K,concentration_NaCl,niv_Bact_Salmonelle,niv_Bact_Ecoli,niv_Bact_Listeria,date_info) VALUES (%f, %f, %f, %f, %f, %f, %f, %f, %f, %f)"""
+	date_prod = strftime(date_prod)
+	query =	"""INSERT INTO unities (unityId, date_prod, tmp_Cuve,tmp_Ext,poids_Lait_Cuve,mesure_PH,mesure_K,concentration_NaCl,niv_Bact_Salmonelle,niv_Bact_Ecoli,niv_Bact_Listeria,date_info) VALUES (%f, %s, %f, %f, %f, %f, %f, %f, %f, %f, %f)"""
 	record = (unityid,date_prod, tmp_Cuve, tmp_Ext, poids_Lait_Cuve, mesure_PH, mesure_K,concentration_NaCl,niv_Bact_Salmonelle,niv_Bact_Ecoli,niv_Bact_Listeria)
 	cursor.execute(query,record)
