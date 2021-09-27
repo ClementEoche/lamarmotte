@@ -22,8 +22,9 @@ app.config['MYSQL_PORT'] = 3306
 
 mysql.init_app(app)
 
-def db_connection(): try:
-     cursor = mysql.connection.cursor()
-except Exception as error:
-         raise error
- return cursor
+def db_connection(): 
+     try:
+          cursor = mysql.connection.cursor()
+          except Exception as error:
+               raise error
+          return cursor
