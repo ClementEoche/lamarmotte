@@ -20,14 +20,6 @@ class Py_socket:
         result = values(self.li,self.id)
         return result
 
-    def create_file(self) :
-        timestamp = int(time.time())
-        filename = "paramunite_" + str(self.id) + "_" + str(timestamp) + ".json"
-        f = open(filename, "a")
-        f.write()
-        f.close()
-
-
     def convert_data(data) :
         req = json.dumps(data)
         return req
@@ -40,6 +32,5 @@ py_socket = Py_socket(5)
 
 while True:
     array_data = py_socket.receive_data()
-    py_socket.create_file()
     json_data = py_socket.convert_data(array_data)
     py_socket.send_data(json_data)
