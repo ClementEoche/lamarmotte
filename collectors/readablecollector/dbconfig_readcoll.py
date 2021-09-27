@@ -1,6 +1,5 @@
-import wrapper
-from flask import Flask
-from flask_mysqldb import MySQL
+import configparser
+from flask import Flask, MySQL
 
 app = Flask(__name__)
 # Configuring Environment Variables
@@ -22,8 +21,9 @@ app.config['MYSQL_PORT'] = 3306
 
 mysql.init_app(app)
 
-def db_connection(): try:
-     cursor = mysql.connection.cursor()
-except Exception as error:
+def db_connection(): 
+     try:
+          cursor = mysql.connection.cursor()
+     except Exception as error:
          raise error
- return cursor
+     return cursor
