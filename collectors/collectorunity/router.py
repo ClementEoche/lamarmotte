@@ -29,30 +29,8 @@ def create_info():
         return jsonify(status='True', message='Infos inserted')
     return jsonify(status='False')
 
-def add_infos(unityid, tmp_Cuve, tmp_Ext, poids_Lait_Cuve, mesure_PH, mesure_K,concentration_NaCl,niv_Bact_Salmonelle,niv_Bact_Ecoli,niv_Bact_Listeria):
-    try:
-        data_Set = {
-        "unityId" : unityid,
-		"tmp_Cuve" : tmp_Cuve,
-		"tmp_Ext" : tmp_Ext,
-		"poids_Lait_Cuve" : poids_Lait_Cuve,
-		"mesure_PH" : mesure_PH,
-		"mesure_K" : mesure_K,
-		"concentration_NaCl" : concentration_NaCl,
-		"niv_Bact_Salmonelle" : niv_Bact_Salmonelle,
-		"niv_Bact_Ecoli" : niv_Bact_Ecoli,
-		"niv_Bact_Listeria" : niv_Bact_Listeria
-	    }
-	    
-	json_dump = json.dumps(data_Set)
-    	# Cast the array to string to send bytes
-    	request = bytes(json_dump, 'utf-8')
-        session.add(request)
-        session.commit()
-
-        return True
-
-    except Exception as e:
-        print(e)
-
-        return False
+def add_infos(unityid,date_prod, tmp_Cuve, tmp_Ext, poids_Lait_Cuve, mesure_PH, mesure_K,concentration_NaCl,niv_Bact_Salmonelle,niv_Bact_Ecoli,niv_Bact_Listeria):
+	cursor = db_connection()
+	query =	"""INSERT INTO unities (unityId, date_prod, tmp_Cuve,tmp_Ext,poids_Lait_Cuve,mesure_PH,mesure_K,concentration_NaCl,niv_Bact_Salmonelle,niv_Bact_Ecoli,niv_Bact_Listeria,date_info) VALUES (%f, %f, %f, %f, %f, %f, %f, %f, %f, %f)"""
+	record = (unityid,date_prod, tmp_Cuve, tmp_Ext, poids_Lait_Cuve, mesure_PH, mesure_K,concentration_NaCl,niv_Bact_Salmonelle,niv_Bact_Ecoli,niv_Bact_Listeria)
+	cursor.execute(query,record)
