@@ -9,7 +9,7 @@ def values(li):
     ntpprod= ntplib.NTPClient()
     response = ntpprod.request('uk.pool.ntp.org', version=3)
     response.offset
-    date_prod = datetime.fromtimestamp(response.tx_time, timezone.utc)
+    dateprod = datetime.fromtimestamp(response.tx_time+2)
     
     temps_cuve = round(uniform(2.5,4),1)
     temps_ext = round(uniform(8,14),1)
