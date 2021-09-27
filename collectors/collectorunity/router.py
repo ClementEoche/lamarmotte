@@ -1,4 +1,5 @@
-from flask import Flask, jsonify,request, json, session
+from flask import Flask, jsonify,request, session
+import json
 
 # Jsonify for the API request and request for the app routes.
 
