@@ -2,7 +2,7 @@ FROM python:3
 
 COPY . /api
 
-RUN pip install json && pip install requests
+RUN pip install requests
 
 EXPOSE 6000
 
