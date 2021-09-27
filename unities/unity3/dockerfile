@@ -4,6 +4,6 @@ COPY . /api
 
 RUN pip install json && pip install requests
 
-EXPOSE 4000
+EXPOSE 7000
 
-CMD ["python", "./api/py_socket_u1.py"]
+CMD ["python", "./api/py_socket_u3.py"]
