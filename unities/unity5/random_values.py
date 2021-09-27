@@ -1,8 +1,16 @@
 from random import *
+import ntplib
+from datetime import datetime, timezone
 
 
 def values(li):
     li = []
+    
+    ntpprod= ntplib.NTPClient()
+    response = ntpprod.request('uk.pool.ntp.org', version=3)
+    response.offset
+    date_prod = datetime.fromtimestamp(response.tx_time, timezone.utc)
+    
     temps_cuve = round(uniform(2.5,4),1)
     temps_ext = round(uniform(8,14),1)
     pds_lait = randint(3512,4607)
