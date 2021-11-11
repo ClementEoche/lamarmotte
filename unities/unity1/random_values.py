@@ -1,5 +1,5 @@
 from random import *
-#import ntplib
+import ntplib
 from datetime import datetime, timezone
 
 
