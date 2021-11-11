@@ -29,7 +29,7 @@ def create_info():
     return jsonify(status='False')
 
 def add_infos(unityid, tmp_Cuve, tmp_Ext, poids_Lait_Cuve, mesure_PH, mesure_K,concentration_NaCl,niv_Bact_Salmonelle,niv_Bact_Ecoli,niv_Bact_Listeria):
-    try:
+    try: 
         data_Set = {
         "unityId" : unityid,
 		"tmp_Cuve" : tmp_Cuve,
