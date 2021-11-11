@@ -1,9 +1,10 @@
 FROM python:3
 
-COPY . /api
+ADD py_socket_u1.py /
 
 RUN pip install requests
+RUN pip install pystrich
 
-EXPOSE 4000
+EXPOSE 4036
 
-CMD ["python", "./api/py_socket_u1.py"]
+CMD ["python", "./py_socket_u1.py"]
